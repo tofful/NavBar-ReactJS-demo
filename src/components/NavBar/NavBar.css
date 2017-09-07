@@ -207,8 +207,8 @@
     right: 0;
   }
 
-  .NavBar .NavBar-dropdown ul:before, 
-  .NavBar .NavBar-dropdown ul:after {
+  .NavBar .NavBar-dropdown ul li:first-child:before, 
+  .NavBar .NavBar-dropdown ul li:first-child:after {
     display: none;
   }
 
