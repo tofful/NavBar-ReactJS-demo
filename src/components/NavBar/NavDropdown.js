@@ -10,12 +10,21 @@ class NavDropdown extends Component {
     };
 
     this.handleDropdownClick = this.handleDropdownClick.bind(this);
+    this.handleGlobalClick =this.handleGlobalClick.bind(this);
   }
 
   handleDropdownClick() {
     this.setState(prevState => ({
       dropdownStatusClass: prevState.dropdownStatusClass == 'open' ? 'closed' : 'open'
     }));
+    document.addEventListener('click', this.handleGlobalClick);
+  }
+  
+  handleGlobalClick() {
+    this.setState(prevState => ({
+      dropdownStatusClass: 'closed'
+    }));
+    document.removeEventListener('click', this.handleGlobalClick);
   }
 
   renderDropdownItems() {
@@ -37,7 +46,7 @@ class NavDropdown extends Component {
 
   render() {
     return (
-      <div className={"NavBar-dropdown " + this.state.dropdownStatusClass}  onClick={this.handleDropdownClick}>
+      <div ref="dropdown" className={"NavBar-dropdown " + this.state.dropdownStatusClass}  onClick={this.handleDropdownClick}>
         <img src={profile} className="NavBar-dropdown-icon" alt="profile" />
         <ul>
           {this.renderDropdownItems()}
