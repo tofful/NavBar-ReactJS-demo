@@ -46,7 +46,7 @@ class NavDropdown extends Component {
 
   render() {
     return (
-      <div ref="dropdown" className={"NavBar-dropdown " + this.state.dropdownStatusClass}  onClick={this.handleDropdownClick}>
+      <div className={"NavBar-dropdown " + this.state.dropdownStatusClass}  onClick={this.handleDropdownClick}>
         <img src={profile} className="NavBar-dropdown-icon" alt="profile" />
         <ul>
           {this.renderDropdownItems()}
